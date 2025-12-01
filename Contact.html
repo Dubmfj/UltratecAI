@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultratec AI</title>
+    <link rel="icon" href="AI.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-left">
+            <a href="login.html" class="login2" id="loginLink">Iniciar Sesión</a>
+            <a href="register.html" class="register2" id="registerLink">Registrarse</a>
+            <span id="saludo" class="user-greeting"></span>
+            <!-- buscador -->
+            <div class="header-search">
+                <input type="text" id="searchInput" placeholder="Buscar planes..." />
+                <button id="searchBtn" class="search-btn">🔍</button>
+                <div id="searchSuggestions" class="suggestions-box"></div>
+            </div>
+        </div>
+        <div class="header-center">
+            <a href="index.html" class="logo">
+            <img src="UltratecAI.png" alt="Ultratec AI Logo">
+            </a>
+        </div>
+        <div class="header-right">
+            <a href="about.html" class="about2">Nosotros</a>
+            <a href="contact.html" class="contact2">Contacto</a>
+            <a href="Servicios.html" class="services2">Servicios</a>
+            <div class="perfil-header">
+            <img id="fotoPerfil" src="https://thumbs.dreamstime.com/b/icono-de-perfil-avatar-predeterminado-imagen-usuario-medios-sociales-gris-silueta-en-blanco-ilustraci%C3%B3n-vectorial-305503988.jpg" alt="Foto de perfil" class="foto-header">
+            <div class="menu-perfil" id="menuPerfil">
+                <ul>
+                <li><a href="perfil.html">Ir al perfil</a></li>
+                <li><button id="cerrarSesionBtn">Cerrar sesión</button></li>
+                </ul>
+            </div>
+            </div>
+        </div>
+    </header>
+    <main class="contact-main">
+    <article class="contact-social">
+        <a href="https://www.facebook.com/Cristiano/" target="_blank"><i class="fa-brands fa-facebook"></i> Facebook</a> |
+        <a href="https://www.instagram.com/Cristiano/" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a> |
+        <a href="https://www.x.com/Cristiano/" target="_blank"><i class="fa-brands fa-x"></i> (Twitter)</a> |
+        <a href="https://www.linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a> |
+        <a href="https://www.youtube.com/@cristiano" target="_blank"><i class="fa-brands fa-youtube"></i> YouTube</a> |
+        <a href="https://www.tiktok.com/" target="_blank"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+</article>
+    <section class="contact-container">
+    <div class="contact-info">  
+        <h1>Contactanos hoy mismo</h1>
+        <p>La magia de la AI te espera.</p>
+        <a href="https://wa.me/51997096915" class="contact-btn" target="_blank">
+            <img src="contact.png" alt="WhatsApp Ultratec AI">
+        </a>
+        <h3 id="primera-sucursal">Primera Sucursal</h3>
+        <p id="direccion">Av. Alameda Jose Leon Barandiaran 707, La Molina.</p>
+        <h3>Telefonos de contacto</h3>
+        <a href="tel:+51997096915" class="telf">+51 997 096 915</a>
+        <a href="tel:+51941454999" class="telf">+51 941 454 999</a>
+    </div>
+    <div class="contact-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d775.9815833323204!2d-76.91202350247215!3d-12.07800523678223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses-419!2spe!4v1755020483951!5m2!1ses-419!2spe" width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    </section>
+
+</main>
+</body>
+<div id="toast-container"></div>
+
+    <footer class="contact-footer">
+        <p>© 2024 Ultratec AI. All rights reserved.</p>
+    </footer>
+    <a href="#" class="scroll-top-btn" title="Ir al inicio">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M7 14l5-5 5 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
+</html>

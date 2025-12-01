@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultratec AI</title>
+    <link rel="icon" href="AI.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-left">
+            <a href="login.html" class="login3" id="loginLink">Iniciar Sesión</a>
+            <a href="register.html" class="register3" id="registerLink">Registrarse</a>
+            <span id="saludo" class="user-greeting"></span>
+            <!-- buscador -->
+            <div class="header-search">
+                <input type="text" id="searchInput" placeholder="Buscar planes..." />
+                <button id="searchBtn" class="search-btn">🔍</button>
+                <div id="searchSuggestions" class="suggestions-box"></div>
+            </div>
+        </div>
+
+        <div class="header-center">
+            <a href="index.html" class="logo">
+            <img src="UltratecAI.png" alt="Ultratec AI Logo">
+            </a>
+        </div>
+
+        <div class="header-right">
+            <a href="about.html" class="about3">Nosotros</a>
+            <a href="contact.html" class="contact3">Contacto</a>
+            <a href="Servicios.html" class="services3">Servicios</a>
+
+            <div class="perfil-header">
+            <img id="fotoPerfil" src="https://thumbs.dreamstime.com/b/icono-de-perfil-avatar-predeterminado-imagen-usuario-medios-sociales-gris-silueta-en-blanco-ilustraci%C3%B3n-vectorial-305503988.jpg" alt="Foto de perfil" class="foto-header">
+            <div class="menu-perfil" id="menuPerfil">
+                <ul>
+                <li><a href="perfil.html">Ir al perfil</a></li>
+                <li><button id="cerrarSesionBtn">Cerrar sesión</button></li>
+                </ul>
+            </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="services-section">
+            <h2>Echa un vistaso a nuestros servicios</h2>
+            <div class="carousel">
+                <button class="carousel-btn left-btn">←</button>
+                <div class="carousel-track">
+                <div class="slide">
+                    <img src="https://copilot.microsoft.com/th/id/BCO.c05ef4b5-7812-4d1a-b95b-989902673b6e.png" alt="Servicio 1">
+                </div>
+                <div class="slide">
+                    <img src="https://copilot.microsoft.com/th/id/BCO.115ef871-c232-4729-9e78-58c7c26a9453.png" alt="Servicio 2">
+                </div>
+                <div class="slide">
+                    <img src="https://copilot.microsoft.com/th/id/BCO.d7ffc12e-daf1-4c29-bcc0-0f25e46509e9.png" alt="Servicio 3">
+                </div>
+                <div class="slide">
+                    <img src="https://copilot.microsoft.com/th/id/BCO.59070fed-cdc1-41bf-9746-ac7ce4bd82a6.png" alt="Servicio 4">
+                </div>
+                <div class="slide">
+                    <img src="https://copilot.microsoft.com/th/id/BCO.35df8a75-a53d-4045-8ab9-ebfce0edadd0.png" alt="Servicio 5">
+                </div>
+                <div class="slide">
+                    <img src="https://copilot.microsoft.com/th/id/BCO.a3e4a61f-8bbf-44cd-a72b-34c1b12bf34e.png" alt="Servicio 6">
+                </div>
+            </div>
+            <button class="carousel-btn right-btn">→</button>
+        </section>
+        <section class="plans-section">
+            <h2>Elige tu plan</h2>
+            <div class="plans-container">
+                <div class="plan-card">
+                <h3>Básico</h3>
+                <p class="price">$49.99/mes</p>
+                <ul>
+                    <li>-Diseño y desarrollo de páginas web inteligentes</li>
+                    <li>-Diseño gráfico asistido por IA</li>
+                </ul>
+                <a href ="https://wa.me/51997096915"><button class="choose-btn1">Elegir</button></a>
+                </div>
+                <div class="plan-card featured">
+                <h3>Estándar</h3>
+                <p class="price">$79.99/mes</p>
+                <ul>
+                    <li>-Diseño y desarrollo de páginas web inteligentes</li>
+                    <li>-Diseño gráfico asistido por IA</li>
+                    <li>-Optimización SEO impulsada por IA</li>
+                    <li>-Chatbots automáticos para atención al cliente</li>
+                </ul>
+                <a href ="https://wa.me/51997096915"><button class="choose-btn2">Elegir</button></a>
+                </div>
+
+                <div class="plan-card">
+                <h3>Premium</h3>
+                <p class="price">$119.99/mes</p>
+                <ul>
+                    <li>-Diseño y desarrollo de páginas web inteligentes</li>
+                    <li>-Diseño gráfico asistido por IA</li>
+                    <li>-Optimización SEO impulsada por IA</li>
+                    <li>-Chatbots automáticos para atención al cliente</li>  
+                    <li>-Mantenimiento y mejora continua de sitios web</li>
+                    <li>-Integración con redes sociales y marketing digital</li>
+                </ul>
+                <a href ="https://wa.me/51997096915"><button>Elegir</button></a>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+<div id="toast-container"></div>

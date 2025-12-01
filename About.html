@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultratec AI</title>
+    <link rel="icon" href="AI.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="header-left">
+            <a href="login.html" class="login1" id="loginLink">Iniciar Sesión</a>
+            <a href="register.html" class="register1" id="registerLink">Registrarse</a>
+            <span id="saludo" class="user-greeting"></span>
+            <!-- buscador -->
+            <div class="header-search">
+                <input type="text" id="searchInput" placeholder="Buscar planes..." />
+                <button id="searchBtn" class="search-btn">🔍</button>
+                <div id="searchSuggestions" class="suggestions-box"></div>
+            </div>
+        </div>
+        <div class="header-center">
+            <a href="index.html" class="logo">
+                <img src="UltratecAI.png" alt="Ultratec AI Logo">
+            </a>
+        </div>
+        <div class="header-right">
+            <a href="about.html" class="about1">Nosotros</a>
+            <a href="contact.html" class="contact1">Contacto</a>
+            <a href="Servicios.html" class="services1">Servicios</a>
+            <div class="perfil-header">
+                <img id="fotoPerfil" src="https://thumbs.dreamstime.com/b/icono-de-perfil-avatar-predeterminado-imagen-usuario-medios-sociales-gris-silueta-en-blanco-ilustraci%C3%B3n-vectorial-305503988.jpg" alt="Foto de perfil" class="foto-header">
+                <div class="menu-perfil" id="menuPerfil">
+                    <ul>
+                        <li><a href="perfil.html">Ir al perfil</a></li>
+                        <li><button id="cerrarSesionBtn">Cerrar sesión</button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="about-main">
+        <img src="about banner.png" alt="Oficinas de Ultratec AI" class="about-banner">
+        <h1 id="quienes-somos">¿Quiénes somos?</h1>
+        <section class="about-row">
+            <img src="https://empresas.infoempleo.com/hrtrends/media/2018/09/seleccion-de-personal.jpg" alt="¿Quiénes somos?" class="about-us-image">
+            <div class="about-us">
+                <h1>
+                    Ultratec AI 
+                </h1>
+                <p>Somos un equipo de profesionales apasionados por la inteligencia artificial, dedicados a crear soluciones innovadoras que transformen la forma en que las empresas operan. Con años de experiencia en el sector, nuestro objetivo es ayudar a nuestros clientes a aprovechar al máximo el potencial de la IA.</p>
+            </div>
+        </section>
+        <section class="about-row about-row-reverse">
+            <img src="https://www.isdi.education/es/wp-content/uploads/2024/05/vision-empresarial.webp" alt="Nuestro Misión" class="about-mision-image">
+            <div class="about-us">
+                <h1>
+                    Nuestra Misión
+                </h1>
+                <p>Nuestra misión es desarrollar soluciones tecnológicas creativas y funcionales que transformen ideas en realidades. Trabajamos para que cada proyecto aporte valor, facilite la vida de las personas y supere las expectativas de nuestros clientes, combinando innovación con un trato cercano y profesional.</p>
+            </div>
+        </section>
+        <section class="about-row">
+            <img src="https://impulsapopular.com/wp-content/uploads/2016/06/iStock_000043250640_Small-1.jpg" alt="Nuestra Visión" class="about-vision-image">
+            <div class="about-us">
+                <h1>
+                    Nuestra Visión
+                </h1>
+                <p>Aspiramos a ser reconocidos como una empresa líder en el sector tecnológico, destacando por la calidad de nuestros servicios, la originalidad de nuestras propuestas y la confianza que generamos en cada colaboración. Queremos ser el aliado que las personas y empresas elijan para dar vida a sus ideas.</p>
+            </div>
+        </section>
+    </main>
+    <footer class="about-footer">
+        <p>© 2024 Ultratec AI. All rights reserved.</p>
+    </footer>
+    <a href="#" class="scroll-top-btn" title="Ir al inicio">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M7 14l5-5 5 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    </a>
+</body>
+<div id="toast-container"></div>
+
+
+</html>
