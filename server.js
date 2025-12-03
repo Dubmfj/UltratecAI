@@ -30,11 +30,11 @@ app.get('/', (req, res) => {
 
 // --- Rutas adicionales para páginas ---
 app.get('/about', (req, res) => {
-    res.sendFile(path.join(__dirname, 'about.html'));
+    res.sendFile(path.join(__dirname, 'About.html'));
 });
 
 app.get('/contact', (req, res) => {
-    res.sendFile(path.join(__dirname, 'contact.html'));
+    res.sendFile(path.join(__dirname, 'Contact.html'));
 });
 
 // --- Registro ---
