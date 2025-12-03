@@ -31,6 +31,10 @@ window.addEventListener('load', () => {
 /*Diseño*/
 
 
+/* --- Configuración de API --- */
+const BASE_URL = window.location.hostname.includes('localhost')
+  ? 'http://localhost:3000'
+  : 'https://ultratecai.onrender.com';
 
 /*registro*/
 document.addEventListener('DOMContentLoaded', () => {
@@ -38,36 +42,36 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!registerForm) return;
 
     registerForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const username = document.getElementById('username').value.trim();
-    const password = document.getElementById('password').value;
+        e.preventDefault();
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value;
 
-    if (!username || !password) {
-    mostrarMensaje('Por favor, completa todos los campos.');
-    return;
-    }
+        if (!username || !password) {
+            mostrarMensaje('Por favor, completa todos los campos.');
+            return;
+        }
 
-    try {
-    const res = await fetch('http://localhost:3000/register', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ username, password })
-});
+        try {
+            const res = await fetch(`${BASE_URL}/register`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password })
+            });
 
-const data = await res.text();
-if (res.ok) {
-    mostrarMensaje(data); 
-    setTimeout(() => {
-        window.location.href = 'login.html';
-    }, 2000); 
-} else {
-    mostrarMensaje(data || 'Error al registrar');
-}
-} catch (err) {
-    console.error(err);
-    mostrarMensaje('No se pudo conectar al servidor.');
-    }
-});
+            const data = await res.text();
+            if (res.ok) {
+                mostrarMensaje(data); 
+                setTimeout(() => {
+                    window.location.href = 'login.html';
+                }, 2000); 
+            } else {
+                mostrarMensaje(data || 'Error al registrar');
+            }
+        } catch (err) {
+            console.error(err);
+            mostrarMensaje('No se pudo conectar al servidor.');
+        }
+    });
 });
 /*aca termina el registro*/
 
@@ -84,44 +88,45 @@ document.addEventListener('DOMContentLoaded', () => {
         const password = document.getElementById('password').value;
 
         if (!username || !password) {
-        mostrarMensaje('Completa usuario y contraseña.');
-        return;
+            mostrarMensaje('Completa usuario y contraseña.');
+            return;
         }
 
         try {
-        const res = await fetch('http://localhost:3000/login', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ username, password })
-        });
-        const data = await res.text();
-        if (res.ok) {
-            localStorage.setItem('usuario', username);
-            let perfil = JSON.parse(localStorage.getItem(`perfil_${username}`));
-            if (!perfil) {
-            perfil = {
-                correo: '',
-                foto: '',
-                fechaRegistro: new Date().toLocaleDateString(),
-                serviciosUsados: [],
-                mensajesEnviados: 0,
-                ultimoLogin: new Date().toLocaleDateString()
-            };
+            const res = await fetch(`${BASE_URL}/login`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password })
+            });
+            const data = await res.text();
+            if (res.ok) {
+                localStorage.setItem('usuario', username);
+                let perfil = JSON.parse(localStorage.getItem(`perfil_${username}`));
+                if (!perfil) {
+                    perfil = {
+                        correo: '',
+                        foto: '',
+                        fechaRegistro: new Date().toLocaleDateString(),
+                        serviciosUsados: [],
+                        mensajesEnviados: 0,
+                        ultimoLogin: new Date().toLocaleDateString()
+                    };
+                } else {
+                    perfil.ultimoLogin = new Date().toLocaleDateString();
+                }
+                localStorage.setItem(`perfil_${username}`, JSON.stringify(perfil));
+                mostrarMensaje(data); 
+                window.location.href = 'index.html';
             } else {
-            perfil.ultimoLogin = new Date().toLocaleDateString();
+                mostrarMensaje(data || 'Error al iniciar sesión');
             }
-            localStorage.setItem(`perfil_${username}`, JSON.stringify(perfil));
-            mostrarMensaje(data); 
-            window.location.href = 'index.html';
-        } else {
-            mostrarMensaje(data || 'Error al iniciar sesión');
-        }
         } catch (err) {
-        console.error(err);
-        mostrarMensaje('No se pudo conectar al servidor.');
+            console.error(err);
+            mostrarMensaje('No se pudo conectar al servidor.');
         }
     });
 });
+
 
 
 document.addEventListener('DOMContentLoaded', () => {

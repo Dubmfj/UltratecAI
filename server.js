@@ -23,8 +23,18 @@ mongoose.connect(DB_URL)
 // --- Servir tu frontend ---
 app.use(express.static(__dirname)); // sirve todos los archivos de tu carpeta Final Project
 
+// Ruta principal
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html')); // muestra tu index.html
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+// --- Rutas adicionales para páginas ---
+app.get('/about', (req, res) => {
+    res.sendFile(path.join(__dirname, 'about.html'));
+});
+
+app.get('/contact', (req, res) => {
+    res.sendFile(path.join(__dirname, 'contact.html'));
 });
 
 // --- Registro ---
@@ -72,7 +82,7 @@ app.post('/login', async (req, res) => {
 });
 
 // --- Inicia el servidor ---
-const port = process.env.PORT || 3000; // 👈 Render usa process.env.PORT, local usa 3000
+const port = process.env.PORT || 3000; // Render usa process.env.PORT, local usa 3000
 app.listen(port, () => {
     console.log(`Servidor corriendo en http://localhost:${port}`);
 });
