@@ -1,87 +1,90 @@
-// --- Importaciones ---
-const express    = require('express');
-const cors       = require('cors');
-const mongoose   = require('mongoose');
-const bcrypt     = require('bcrypt');
-const User       = require('./models/User');
+const express = require('express');
+const cors = require('cors');
+const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+const User = require('./models/User');
 
-// --- Configuración de la app ---
 const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// --- Conexión a MongoDB Atlas ---
-// Usa variables de entorno para mayor seguridad
-const DB_USER = process.env.DB_USER;
-const DB_PASS = process.env.DB_PASS;
-const DB_NAME = process.env.DB_NAME || 'usuariosDB';
 
-const DB_URL = `mongodb+srv://${DB_USER}:${DB_PASS}@cluster0.xhtoge3.mongodb.net/${DB_NAME}?retryWrites=true&w=majority`;
+const DB_USER = 'dubmfj';
+
+
+const DB_PASS = '2125dinosaurio';
+
+
+const DB_URL = `mongodb+srv://${DB_USER}:${DB_PASS}@cluster0.xhtoge3.mongodb.net/usuariosDB?retryWrites=true&w=majority`; 
+
 
 mongoose.connect(DB_URL)
-    .then(() => {
-        console.log('✅ Conexión a MongoDB Atlas exitosa.');
-    })
-    .catch(err => {
-        console.error('❌ Error de conexión a la DB:', err);
-    });
+    .then(() => console.log('✅ Conexión a MongoDB Atlas exitosa.'))
+    .catch(err => console.error('❌ Error de conexión a la DB:', err));
 
-// --- Rutas ---
-app.get('/', (req, res) => {
-    res.send('El servidor Express está funcionando 🚀');
-});
 
-// Registro de usuario
+app.use(express.json()); 
+app.use(express.urlencoded({ extended: true })); 
+
+
 app.post('/register', async (req, res) => {
-    const { username, password } = req.body;
+    const { username, password } = req.body; 
 
     try {
-        // Generar hash seguro
-        const salt = await bcrypt.genSalt(10);
-        const hashedPassword = await bcrypt.hash(password, salt);
 
-        // Crear nuevo usuario
-        const newUser = new User({
-            username: username,
-            password: hashedPassword
-        });
-        await newUser.save();
+    const salt = await bcrypt.genSalt(10); 
+    const hashedPassword = await bcrypt.hash(password, salt);
 
-        res.status(201).send('Usuario registrado con éxito.');
+
+    const newUser = new User({
+    username: username,
+      password: hashedPassword // Guarda el hash
+    });
+    await newUser.save();
+
+    res.status(201).send('Usuario registrado con éxito.');
+
     } catch (err) {
-        if (err.code === 11000) {
-            return res.status(400).send('El nombre de usuario ya está en uso.');
-        }
-        console.error(err);
-        res.status(500).send('Error interno del servidor.');
+    if (err.code === 11000) {
+    return res.status(400).send('El nombre de usuario ya está en uso.');
     }
+    console.error(err);
+    res.status(500).send('Error interno del servidor.');
+}
 });
 
-// Login de usuario
+// --- 5. INICIA EL SERVIDOR ---
+app.get('/', (req, res) => {
+    res.send('El servidor Express está funcionando.');
+});
+
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => {
+    console.log(`Servidor de login corriendo en http://localhost:${port}`);
+});
+
+
+
+/*login*/
 app.post('/login', async (req, res) => {
     const { username, password } = req.body;
 
     try {
-        const user = await User.findOne({ username });
-        if (!user) {
-            return res.status(404).send('Usuario no encontrado.');
-        }
-
-        const passwordMatch = await bcrypt.compare(password, user.password);
-        if (!passwordMatch) {
-            return res.status(401).send('Contraseña incorrecta.');
-        }
-
-        res.status(200).send('Usuario logeado con éxito.');
-    } catch (error) {
-        console.error(error);
-        res.status(500).send('Error interno del servidor.');
+    const user = await User.findOne({ username });
+    if (!user) {
+        return res.status(404).send('Usuario no encontrado.');
     }
-});
 
-// --- Inicio del servidor ---
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`🚀 Servidor corriendo en el puerto ${PORT}`);
+    const passwordMatch = await bcrypt.compare(password, user.password);
+    if (!passwordMatch) {
+        return res.status(401).send('Contraseña incorrecta.');
+    }
+
+    res.status(200).send('Usuario logeado con éxito.');
+    } catch (error) {
+    console.error(error);
+    res.status(500).send('Error interno del servidor.');
+    }
 });
