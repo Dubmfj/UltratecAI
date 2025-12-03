@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-const path = require('path'); // 👈 necesario para servir archivos
+const path = require('path'); 
 const User = require('./models/User');
 
 const app = express();
@@ -10,6 +10,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// --- Conexión a MongoDB Atlas ---
 const DB_USER = 'dubmfj';
 const DB_PASS = '2125dinosaurio';
 
@@ -20,10 +21,10 @@ mongoose.connect(DB_URL)
     .catch(err => console.error('❌ Error de conexión a la DB:', err));
 
 // --- Servir tu frontend ---
-app.use(express.static(__dirname)); // 👈 sirve todos los archivos de tu carpeta Final Project
+app.use(express.static(__dirname)); // sirve todos los archivos de tu carpeta Final Project
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html')); // 👈 muestra tu index.html
+    res.sendFile(path.join(__dirname, 'index.html')); // muestra tu index.html
 });
 
 // --- Registro ---
@@ -71,7 +72,7 @@ app.post('/login', async (req, res) => {
 });
 
 // --- Inicia el servidor ---
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000; // 👈 Render usa process.env.PORT, local usa 3000
 app.listen(port, () => {
     console.log(`Servidor corriendo en http://localhost:${port}`);
 });
